@@ -15,8 +15,11 @@ int main(void) {
     LCDinit();
     LCDclear();
 
-    cursorToLineTwo();
-    writeString("Beasty Boys#");
+
+    char* string = "ECE382 is my favorite class!";
+    char* string2 = "Beasty Boys";
+    scrollString(string, string2);
+
 
     while(1){
 
