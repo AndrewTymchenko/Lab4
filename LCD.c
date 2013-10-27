@@ -77,10 +77,10 @@ void cursorToLineOne(){
 }
 
 void cursorToLineTwo(){
-	writeCommandByte(0x02); //moves cursor right x40 so it starts at line 2
+	writeCommandByte(0x02); //moves cursor right x40 so it starts at line 2 (2X40 screen)
 	int i;
 	for(i = 0; i < 40; i++){
-		writeCommandByte(0x14);
+		writeCommandByte(0x14); //shifts cursor to right
 	}
 }
 
@@ -96,17 +96,7 @@ void scrollString(char * string, char *string2){
 	cursorToLineTwo();
 	writeString(stringTwo);
 
-	stringOne++;
 
-	if(*stringOne == 0){
-		stringOne = string;
-	}
-
-	stringTwo++;
-
-	if(*stringTwo == 0){
-		stringTwo = string2;
-	}
 	__delay_cycles(105000);
 }
 
